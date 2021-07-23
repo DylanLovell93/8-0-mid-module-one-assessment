@@ -26,7 +26,19 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
+function getTotalCount(animals) {
+  //Assign default variable to accumulate to, set to 0 so returns 0 if no animals
+  let totalCount = 0;
+  //Create loop to iterate through animals array
+  for (let i = 0; i < animals.length; i++){
+    //create variable for current animal in loop for clarity
+    currentAnimal = animals[i];
+    //in loop, add current animal's count to our total count
+    totalCount += currentAnimal.count;
+  }
+  //after looping, return our total count
+  return totalCount;
+}
 
 /**
  * FUNCTION DESCRIPTION
