@@ -108,7 +108,30 @@ function filterByCountMinimum(animals, minimum) {
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {}
+function getMostCommonAnimal(animals) {
+  //Account for the edgecase of an empty array early
+  //if animals array is empty
+  if (animals.length === 0){
+    //return null
+    return null;
+  }
+  //Create default object to accumulate to, = animals[0] &
+  //good default if it's our only animal &
+  //gives us a starting point to start comparing animals
+  let mostCommon = animals[0];
+  //Create a loop to iterate through the animals array (start at index 1, index 0 is already our default)
+  for (let i = 1; i < animals.length; i++) { //using i loop to change starting element in array
+    //Create currentAnimal variable for clarity
+    let currentAnimal = animals[i];
+    //in loop, check if currentAnimal's count is higher than mostCommon animal's count
+    if (currentAnimal.count > mostCommon.count){
+      //if so, then our currentAnimal is our new mostCommon animal
+      mostCommon = currentAnimal;
+    }
+  }
+  //after loop, return mostCommon animal
+  return mostCommon;
+}
 
 // Do not change anything below this line.
 module.exports = {
