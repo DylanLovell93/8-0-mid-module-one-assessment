@@ -30,7 +30,7 @@ function getTotalCount(animals) {
   //Assign default variable to accumulate to, set to 0 so returns 0 if no animals
   let totalCount = 0;
   //Create loop to iterate through animals array
-  for (let i = 0; i < animals.length; i++){
+  for (let i = 0; i < animals.length; i++){ 
     //create variable for current animal in loop for clarity
     currentAnimal = animals[i];
     //in loop, add current animal's count to our total count
@@ -81,7 +81,20 @@ function getAllKinds(animals) {
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animals, minimum) {}
+function filterByCountMinimum(animals, minimum) {
+  //Create default variable to accumulate to, set to [] incase no animals meet the requirements
+  let filteredAnimals = [];
+  //Create a loop to iterate through animals array
+  for (const currentAnimal of animals){
+    //in loop, check if our current animal's count is >= the minimum
+    if (currentAnimal.count >= minimum){
+      //if it is, add the current animal to the new array
+      filteredAnimals.push(currentAnimal);
+    }
+  }
+  //after looping, return our filtered array
+  return filteredAnimals;
+}
 
 /**
  * FUNCTION DESCRIPTION
